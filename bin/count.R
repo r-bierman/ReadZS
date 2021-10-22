@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+print(R.Version())
+
 if (!require("data.table")) {
   install.packages("data.table", dependencies = TRUE, repos = "http://cran.us.r-project.org")
   library(data.table)
