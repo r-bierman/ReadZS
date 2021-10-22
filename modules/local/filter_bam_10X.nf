@@ -16,6 +16,10 @@ process FILTER_BAM_10X {
 
   script:
   """
+  which python
+
+  which python3
+
   filter.py \\
     --input_bam <(samtools view -b ${bam} ${chr} ) \\
     --isSICILIAN ${isSICILIAN} \\
