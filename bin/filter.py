@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+import sys
+
+#Print out the location of the python executable so I know which one it is using
+print(sys.executable)
 
 import argparse
 import pysam
