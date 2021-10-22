@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 #Print out the location of the python executable so I know which one it is using
 import sys
