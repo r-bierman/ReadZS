@@ -2,6 +2,8 @@ process COUNT {
   tag "${basename}"
   label 'process_medium'
 
+  conda 'r-base=4.0.2 r-data.table'
+
   input:
   path filtered
   val libType
