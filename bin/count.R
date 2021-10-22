@@ -2,10 +2,12 @@
 
 print(R.Version())
 
-if (!require("data.table")) {
-  install.packages("data.table", dependencies = TRUE, repos = "http://cran.us.r-project.org")
-  library(data.table)
-}
+#if (!require("data.table")) {
+#  install.packages("data.table", dependencies = TRUE, repos = "http://cran.us.r-project.org")
+#  library(data.table)
+#}
+
+library(data.table)
 
 args<-commandArgs(TRUE)
 input_file <- args[1]

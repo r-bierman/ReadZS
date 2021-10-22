@@ -2,7 +2,7 @@ process FILTER_BAM_SS2 {
   tag "${bamFileID}"
   label 'process_medium'
 
-  //conda 'bioconda::pysam=0.17.0 pandas'
+  conda 'python=3.7 bioconda::pysam pandas'
 
   input:
   tuple val(inputChannel), val(bamFileID), path(bam), path(bai)
