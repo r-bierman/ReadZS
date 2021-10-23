@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+.libPaths("/oak/stanford/groups/horence/rob/R/x86_64-pc-linux-gnu-library/4.0")
+
 print(system("type R"))
 print(.libPaths())
 
