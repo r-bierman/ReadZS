@@ -10,15 +10,21 @@ workflow CALCULATE {
 
     main:
     // Step 1: Calculate counts for each filtered file
+    /*
+    //RB "manually" cacheing previously successful COUNT job
     COUNT (
         ch_mergeFilter,
         params.libType,
         params.binSize
     )
+    */
+
+    ch_counts = Channel.fromPath("/oak/stanford/groups/horence/rob/readzs_fork/results/counts/*")
 
     // Step 2: Merge by Chromosome and output
     if (params.libType == "10X"){
-        count_merge_list = COUNT.out.count
+        //count_merge_list = COUNT.out.count
+        count_merge_list = ch_counts //NOTE, REVERT WHEN DONE
             .map { file ->
                 def key = file.name.toString().tokenize('-')[1]
                 return tuple(key, file)

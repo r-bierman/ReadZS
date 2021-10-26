@@ -5,10 +5,6 @@
 ## ontology (combination of metadata), and determines which windows have significantly
 ## different median Z-scores in different ontologies. Outputs a table of all windows with
 ## calculable median Z scores, and a table of only the significant windows.
-
-#RB added so R can find my package installations
-.libPaths("/oak/stanford/groups/horence/rob/R/x86_64-pc-linux-gnu-library/4.0")
-
 if (!require("data.table")) {
   install.packages("data.table", dependencies = TRUE, repos = "http://cran.us.r-project.org")
   library(data.table)
