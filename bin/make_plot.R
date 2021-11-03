@@ -18,7 +18,8 @@ ont_cols <- args[2]
 gff_path <- args[3]
 
 ont_cols <- unlist(strsplit(ont_cols, ", "))
-gen = "hg38"
+#gen = "hg38" #RB 10/29 changing to mm10, not sure if it matters. nope! doesn't matter at all
+gen = "mm10"
 data <-fread(input_file, header=T)
 
 chr <- unique(data$chromosome)
