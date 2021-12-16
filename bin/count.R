@@ -16,11 +16,23 @@ libType <- args[3]
 binSize <- as.numeric(args[4])
 
 ## Function to get bin from position, strand, and chromsome
-get_bin <- function(pos, binSize, chr, strand)
+# RB changed name from get_bin to get_bin_orig to use other function on 12/16/2021
+get_bin_orig <- function(pos, binSize, chr, strand)
 {
   pos <- as.numeric(pos)
   bin_num <- ceiling(pos/binSize)
   bin <- paste(chr, bin_num, strand, sep="_")
+  return(bin)
+}
+
+## RB bin assigning by gene from table of MERFISH genes of interest 12/16/2021
+## assumes reads can only possible be within the genes of interest (pre-filtered)
+gene_locs = fread('/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/MERFISH_genes.bed')
+get_bin <- function(pos, binSize, chrom, strand)
+{
+  pos <- as.numeric(pos)
+  gene_name <- gene_locs[gene_locs[, get("#chr")] == chrom & start <= pos & pos <= end,gene]
+  bin <- paste(chrom, gene_name, strand, sep="_")
   return(bin)
 }
 

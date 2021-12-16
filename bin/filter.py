@@ -2,6 +2,7 @@
 
 #Print out the location of the python executable so I know which one it is using
 import sys
+import re
 print('Python executable path is',sys.executable)
 
 import argparse
@@ -83,7 +84,10 @@ def get_SICILIAN_outs(read):
     return (cbc, umi)
 
 def get_cellranger_outs(read):
-    cbc = read.get_tag("CB").replace("-1", "")
+    cbc = read.get_tag("CB").strip()
+    #RB edit to only replace -1 at end of string
+    cbc = re.sub("-1$","",cbc)
+
     umi = read.get_tag("UB")
     return (cbc, umi)
 
