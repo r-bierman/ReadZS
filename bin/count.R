@@ -37,7 +37,7 @@ get_bin <- function(pos_list, binSize, chrom_list, strand)
     gene_name <- gene_locs[(gene_locs[, get("#chr")] == chrom) & (start <= pos) & (pos <= end),gene]
     bins[[i]] <- paste(chrom, gene_name, strand, sep="_")
   }
-  return(bins)
+  return(unlist(bins))
 }
 
 ## Determine the strand of the data
