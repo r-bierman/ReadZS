@@ -27,13 +27,17 @@ get_bin_orig <- function(pos, binSize, chr, strand)
 
 ## RB bin assigning by gene from table of MERFISH genes of interest 12/16/2021
 ## assumes reads can only possible be within the genes of interest (pre-filtered)
-gene_locs = fread('/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/MERFISH_genes.bed')
-get_bin <- function(pos, binSize, chrom, strand)
+gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/MERFISH_genes.bed")
+get_bin <- function(pos_list, binSize, chrom_list, strand)
 {
-  pos <- as.numeric(pos)
-  gene_name <- gene_locs[gene_locs[, get("#chr")] == chrom & start <= pos & pos <= end,gene]
-  bin <- paste(chrom, gene_name, strand, sep="_")
-  return(bin)
+  bins <- vector("list", length(pos_list))
+  for(i in 1:length(pos_list)){
+    pos <- as.numeric(pos_list[i])
+    chrom <- chrom_list[i]
+    gene_name <- gene_locs[(gene_locs[, get("#chr")] == chrom) & (start <= pos) & (pos <= end),gene]
+    bins[[i]] <- paste(chrom, gene_name, strand, sep="_")
+  }
+  return(bins)
 }
 
 ## Determine the strand of the data
