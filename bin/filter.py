@@ -32,7 +32,8 @@ reject_flags = (
     bit_meanings['second in pair'] |
     bit_meanings['not primary alignment'] |
     bit_meanings['read fails platform/vendor quality checks'] |
-    bit_meanings['supplementary alignment']
+    bit_meanings['supplementary alignment'] |
+    bit_meanings['read is PCR or optical duplicate']
 )
 
 
