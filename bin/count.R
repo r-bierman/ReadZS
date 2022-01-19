@@ -27,8 +27,8 @@ get_bin_orig <- function(pos, binSize, chr, strand)
 
 ## RB bin assigning by gene from table of MERFISH genes of interest 12/16/2021
 ## assumes reads can only possible be within the genes of interest (pre-filtered)
-#gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/MERFISH_genes.bed")
-gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/all_genes.bed")
+gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/MERFISH_genes.bed")
+#gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/all_genes.bed")
 get_bin <- function(pos_list, binSize, chrom_list, strand)
 {
   bins <- vector("list", length(pos_list))
@@ -36,8 +36,8 @@ get_bin <- function(pos_list, binSize, chrom_list, strand)
     pos <- as.numeric(pos_list[i])
     chrom <- chrom_list[i]
     gene_name <- gene_locs[(gene_locs[, get("#chr")] == chrom) & (start <= pos) & (pos <= end),gene]
-    bins[[i]] <- paste(chrom, gene_name, strand, sep="_") #RB 12/17/2021 DO include strand in bin name for 10X
-    #bins[[i]] <- paste(chrom, gene_name, sep="_") #RB 12/17/2021 don't include strand in bin name for SS2 since it is unstranded
+    #bins[[i]] <- paste(chrom, gene_name, strand, sep="_") #RB 12/17/2021 DO include strand in bin name for 10X
+    bins[[i]] <- paste(chrom, gene_name, sep="_") #RB 12/17/2021 don't include strand in bin name for SS2 since it is unstranded
   }
   return(unlist(bins))
 }
