@@ -17,7 +17,7 @@ binSize <- as.numeric(args[4])
 
 ## Function to get bin from position, strand, and chromsome
 # RB changed name from get_bin to get_bin_orig to use other function on 12/16/2021
-get_bin_orig <- function(pos, binSize, chr, strand)
+get_bin <- function(pos, binSize, chr, strand)
 {
   pos <- as.numeric(pos)
   bin_num <- ceiling(pos/binSize)
@@ -29,7 +29,7 @@ get_bin_orig <- function(pos, binSize, chr, strand)
 ## assumes reads can only possible be within the genes of interest (pre-filtered)
 gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/MERFISH_genes.bed")
 #gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/all_genes.bed")
-get_bin <- function(pos_list, binSize, chrom_list, strand)
+get_bin_gene <- function(pos_list, binSize, chrom_list, strand)
 {
   bins <- vector("list", length(pos_list))
   for(i in 1:length(pos_list)){
