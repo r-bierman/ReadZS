@@ -1,7 +1,7 @@
 process CALC_MEDIAN {
   tag "${basename}"
 
-  label 'process_medium'
+  label 'process_high'
 
   publishDir "${params.outdir}/medians",
     pattern: "*medians*",
