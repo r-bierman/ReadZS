@@ -36,7 +36,8 @@ output_pvals <- args[7]
 ### === HARDCODED VALUES ===
 
 alpha_value <- 0.05  # set this value for BH correction
-min_fraction_annotated <- 0.5  # min fraction of cells w/ ontology annotation to include a gene
+#min_fraction_annotated <- 0.5  # min fraction of cells w/ ontology annotation to include a gene
+min_fraction_annotated <- 0.0  # RB don't filter
 set.seed(42)
 
 ### ========================
