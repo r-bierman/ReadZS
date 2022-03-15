@@ -27,7 +27,8 @@ get_bin <- function(pos, binSize, chr, strand)
 
 ## RB bin assigning by gene from table of MERFISH genes of interest 12/16/2021
 ## assumes reads can only possible be within the genes of interest (pre-filtered)
-gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/MERFISH_genes.bed")
+#gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/MERFISH_genes.bed")
+gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/MERFISH_3UTRs.bed")
 #gene_locs = fread("/oak/stanford/groups/horence/rob/isoform_localizations/SRRS/plotting/buildup_plots/all_genes.bed")
 get_bin_new <- function(pos_list, binSize, chrom_list, strand)
 {
