@@ -16,7 +16,7 @@ process FILTER_BAM_10X {
 
   script:
   """
-  filter.py \\
+  /share/software/user/open/python/3.6.1/bin/python3 /oak/stanford/groups/horence/rob/readzs_fork/ReadZS/bin/filter.py \\
     --input_bam <(samtools view -b ${bam} ${chr} ) \\
     --isSICILIAN ${isSICILIAN} \\
     --isCellranger ${isCellranger} \\
