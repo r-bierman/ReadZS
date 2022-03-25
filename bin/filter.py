@@ -3,6 +3,7 @@
 #Print out the location of the python executable so I know which one it is using
 import sys
 import re
+print('Python version is',sys.version)
 print('Python executable path is',sys.executable)
 
 import argparse
